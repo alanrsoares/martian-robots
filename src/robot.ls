@@ -6,6 +6,9 @@ turn-map = do
 
 export class Robot
   (@x, @y, @facing) ->
+    error-prefix = 'Invalid coordinates: one or more coordinates'
+    throw "#{error-prefix} are not valid numbers" if isNaN @x or isNaN @y
+    throw "#{error-prefix} are negative numbers" if @x < 0 or @y < 0
     @is-lost = false
 
   get-coordinates: ->
