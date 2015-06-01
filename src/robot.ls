@@ -12,10 +12,9 @@ export class Robot
     "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}"
 
   execute: (instructions, grid) ->
-    move = -> @move it, grid
     instructions.split ''
                 .map (.to-upper-case!)
-                .for-each move.bind @
+                .for-each (-> @move it, grid).bind @
 
   turn: (instruction) ->
     @facing = turn-map[@facing][+(instruction is 'L')]
