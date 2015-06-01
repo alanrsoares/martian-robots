@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alan R. Soares; GitHub: @alanrsoares;",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "figlet": "^1.1.0",
+    "livescript": "^1.4.0"
+  }
 }
