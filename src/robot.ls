@@ -12,7 +12,7 @@ export class Robot
     "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}"
 
   execute: (instructions, grid) ->
-    move = (instruction) -> @move instruction, grid
+    move = -> @move it, grid
     instructions.split('').for-each move.bind @
 
   move: (instruction, grid) ->
@@ -28,8 +28,8 @@ export class Robot
 
     match @facing
     | 'N' => @y++
-    | 'S' => @y--
     | 'E' => @x++
+    | 'S' => @y--
     | 'W' => @x--
 
     if grid.is-robot-lost @ then
