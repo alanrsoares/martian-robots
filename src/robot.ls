@@ -19,7 +19,7 @@ export class Robot
     return false if @is-lost
 
     if instruction is not 'F' then
-      @facing = turn-map[@facing][+(@instruction is 'L')]
+      @facing = turn-map[@facing][+(instruction is 'L')]
     else if !grid.has-lost-robot-scent @get-coordinates! then
       @move-forward grid
 
