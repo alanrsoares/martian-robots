@@ -13,7 +13,9 @@ export class Robot
 
   execute: (instructions, grid) ->
     move = -> @move it, grid
-    instructions.split('').for-each move.bind @
+    instructions.split ''
+                .map (.to-upper-case!)
+                .for-each move.bind @
 
   turn: (instruction) ->
     @facing = turn-map[@facing][+(instruction is 'L')]
