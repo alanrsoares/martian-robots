@@ -22,6 +22,7 @@ add-robot = (grid) ->
       grid.add-robot robot, instructions
       rl.question 'Add new robot? (Y/n): ' (answer) ->
         if answer.to-upper-case! is 'N' then
+          console.log 'Robots coordinates:\n'
           grid.robots.for-each (robot) -> console.log robot.get-coordinates!
           rl.close!
         else return add-robot grid

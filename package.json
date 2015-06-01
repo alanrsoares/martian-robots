@@ -4,7 +4,7 @@
   "description": "Yet another grid based console game",
   "main": "src/game.ls",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "./node_modules/.bin/lsc src/game.ls"
   },
   "author": "Alan R. Soares; GitHub: @alanrsoares;",
   "license": "MIT",
