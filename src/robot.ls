@@ -1,14 +1,8 @@
 turn-map = do
-  'R': do
-    'N': 'E'
-    'E': 'S'
-    'S': 'W'
-    'W': 'N'
-  'L': do
-    'N': 'W'
-    'W': 'S'
-    'S': 'E'
-    'E': 'N'
+  'N': <[ E W ]>
+  'E': <[ S N ]>
+  'S': <[ W E ]>
+  'W': <[ N S ]>
 
 export class Robot
   (@x, @y, @facing) ->
@@ -25,9 +19,9 @@ export class Robot
     return false if @is-lost
 
     if instruction is not 'F' then
-      @facing = turn-map[instruction][@facing]
+      @facing = turn-map[@facing][+(@instruction is 'L')]
     else if !grid.has-lost-robot-scent @get-coordinates! then
-        @move-forward grid
+      @move-forward grid
 
   move-forward: (grid) ->
     last-coordinates = @get-coordinates!

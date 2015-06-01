@@ -1,14 +1,12 @@
-MAX_BOUND = 50
-MIN_BOUND = 1
+MAX = 50
+MIN = 1
 
 export class Grid
-  (l = 0, h = 0) ->
-    throw 'Invalid dimensions'               if isNaN l       or isNaN h
-    throw 'Grid cannot be larger than 50x50' if l > MAX_BOUND or h > MAX_BOUND
-    throw 'Grid cannot be smaller than 1x1'  if l < MIN_BOUND or h < MIN_BOUND
+  (@length = 0, @heigth = 0) ->
+    throw 'Invalid dimensions'               if isNaN @length or isNaN @heigth
+    throw 'Grid cannot be larger than 50x50' if @length > MAX or @heigth > MAX
+    throw 'Grid cannot be smaller than 1x1'  if @length < MIN or @heigth < MIN
 
-    @length = l
-    @heigth = h
     @robots = []
     @lost-robot-coordinates = []
 
