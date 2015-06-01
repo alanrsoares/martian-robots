@@ -15,11 +15,14 @@ export class Robot
     move = -> @move it, grid
     instructions.split('').for-each move.bind @
 
+  turn: (instruction) ->
+    @facing = turn-map[@facing][+(instruction is 'L')]
+
   move: (instruction, grid) ->
     return false if @is-lost
 
     if instruction is not 'F' then
-      @facing = turn-map[@facing][+(instruction is 'L')]
+      @turn instruction
     else if !grid.has-lost-robot-scent @get-coordinates! then
       @move-forward grid
 
