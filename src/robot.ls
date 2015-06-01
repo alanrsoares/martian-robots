@@ -9,7 +9,7 @@ export class Robot
     @is-lost = false
 
   get-coordinates: ->
-    "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}"
+    "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}".trim!
 
   execute: (instructions, grid) ->
     instructions.split ''
