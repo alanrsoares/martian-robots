@@ -22,10 +22,11 @@ add-robot = (grid) ->
       grid.add-robot robot, instructions
       rl.question 'Add new robot? (Y/n): ' (answer) ->
         if answer.to-upper-case! is 'N' then
-          console.log 'Robots coordinates:\n'
+          console.log '\nRobots coordinates:'
           grid.robots.for-each (robot) -> console.log robot.get-coordinates!
-          rl.close!
-        else return add-robot grid
+          return rl.close!
+
+        add-robot grid
 
 init = ->
   figlet.text 'Martian\n Robots', { font: 'Delta Corps Priest 1' }, (err, data) ->
