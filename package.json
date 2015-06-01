@@ -1,0 +1,11 @@
+{
+  "name": "martianrobots",
+  "version": "1.0.0",
+  "description": "Yet another grid based console game",
+  "main": "src/game.ls",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alan R. Soares; GitHub: @alanrsoares;",
+  "license": "MIT"
+}
