@@ -1,2 +1,12 @@
 # martian-robots
-Yet another grid console game
+
+### Install dependencies
+
+```bash
+npm i
+```
+
+### Run demo
+```bash
+npm run demo
+```
