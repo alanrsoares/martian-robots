@@ -9,24 +9,21 @@ rl = readline.create-interface input: process.stdin, output: process.stdout
 
 add-robot = (grid) ->
   added = grid.robots.length + 1
-  rl.question "Enter robot position ##{added}: ", (position) ->
-    coordinates = position.split ' '
-    x = coordinates.0
-    y = coordinates.1
-    facing = coordinates.2
 
-    robot = new Robot x, y, facing
+  position <- rl.question "Enter robot position ##{added}: "
+  coordinates = position.split ' '
+  robot = new Robot coordinates.0, coordinates.1, coordinates.2
 
-    rl.question 'Add movement instructions: ', (instructions) ->
-      throw 'Instructions length exceeded' if instructions.length > 100
-      grid.add-robot robot, instructions
-      rl.question 'Add new robot? (Y/n): ' (answer) ->
-        if answer.to-upper-case! is 'N' then
-          console.log '\nRobots coordinates:'
-          grid.robots.for-each (robot) -> console.log robot.get-coordinates!
-          return rl.close!
+  instructions <- rl.question 'Add movement instructions: '
+  grid.add-robot robot, instructions
 
-        add-robot grid
+  answer <- rl.question 'Add new robot? (Y/n): '
+  if answer.to-upper-case! is 'N' then
+    console.log '\nRobots coordinates:'
+    grid.robots.for-each (robot) -> console.log robot.get-coordinates!
+    return rl.close!
+
+  add-robot grid
 
 init = ->
   figlet.text 'Martian\n Robots', { font: 'Delta Corps Priest 1' }, (err, data) ->

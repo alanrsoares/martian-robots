@@ -15,6 +15,7 @@ export class Robot
     "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}".trim!
 
   execute: (instructions, grid) ->
+    throw 'Instructions length exceeded' if instructions.length > 100
     instructions.split ''
                 .map (.to-upper-case!)
                 .for-each (-> @move it, grid).bind @
