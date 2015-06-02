@@ -1,8 +1,8 @@
 turn-map = do
-  'N': <[ E W ]>
-  'E': <[ S N ]>
-  'S': <[ W E ]>
-  'W': <[ N S ]>
+  'N': <[ W E ]>
+  'E': <[ N S ]>
+  'S': <[ E W ]>
+  'W': <[ S N ]>
 
 export class Robot
   (@x, @y, @facing) ->
@@ -21,7 +21,7 @@ export class Robot
                 .for-each (-> @move it, grid).bind @
 
   turn: (instruction) ->
-    @facing = turn-map[@facing][+(instruction is 'L')]
+    @facing = turn-map[@facing][+(instruction is 'R')]
 
   move: (instruction, grid) ->
     return false if @is-lost

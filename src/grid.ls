@@ -6,7 +6,6 @@ export class Grid
     throw 'Invalid dimensions'               if isNaN @length or isNaN @heigth
     throw 'Grid cannot be larger than 50x50' if @length > MAX or @heigth > MAX
     throw 'Grid cannot be smaller than 1x1'  if @length < MIN or @heigth < MIN
-
     @robots = []
     @lost-robot-coordinates = []
 
