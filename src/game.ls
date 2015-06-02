@@ -43,7 +43,7 @@ show-help = ->
   | # Instructions:                                     |\n
   | Note: A series of movement instructions consisting  |\n
   | of the characters R: Right, L: Left, and F: Forward |\n
-  | Example: RFRFRFRF                                   |\n
+  | Example: RFRFRFLF                                   |\n
   .-----------------------------------------------------.\n
   "
 
