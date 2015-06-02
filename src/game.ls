@@ -33,18 +33,18 @@ show-help = ->
   | # Mars surface size:                                |\n
   | Format: length heigth                               |\n
   | Default value: 50 50                                |\n
-  ._____________________________________________________.\n
+  +-----------------------------------------------------+\n
   | # Robot position:                                   |\n
   | Format: x y orientation                             |\n
   | Note: Orientation must be one of N, S, E or W       |\n
   | corresponding to North, South, East or West         |\n
   | Example: 1 1 E                                      |\n
-  ._____________________________________________________.\n
+  +-----------------------------------------------------+\n
   | # Instructions:                                     |\n
   | Note: A series of movement instructions consisting  |\n
   | of the characters R: Right, L: Left, and F: Forward |\n
   | Example: RFRFRFLF                                   |\n
-  ._____________________________________________________.\n
+  '-----------------------------------------------------'\n
   "
 
 init = ->
