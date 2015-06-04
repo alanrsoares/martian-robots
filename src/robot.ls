@@ -24,11 +24,11 @@ export class Robot
     @facing = turn-map[@facing][+(instruction is 'R')]
 
   move: (instruction, grid) ->
-    return false if @is-lost
+    return false if @is-lost or grid.has-lost-robot-scent @get-coordinates!
 
     if instruction is not 'F' then
       @turn instruction
-    else if !grid.has-lost-robot-scent @get-coordinates! then
+    else
       @move-forward grid
 
   move-forward: (grid) ->
