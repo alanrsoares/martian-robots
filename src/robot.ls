@@ -22,7 +22,7 @@ export class Robot
     throw 'Instructions length exceeded' if instructions.length > 100
     instructions.split ''
                 .map (.to-upper-case!)
-                .for-each (-> @move it, grid).bind @
+                .map (-> @move it, grid).bind @
 
   turn: (direction) ->
     @facing = turn-map[@facing][+(direction is 'R')]
