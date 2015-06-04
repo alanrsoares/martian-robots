@@ -36,5 +36,3 @@ robots.map (r) ->
 
 grid.robots.map (r, i) ->
   console.log r.get-coordinates! + ' -> ' + robots[i].expected
-
-#console.log grid

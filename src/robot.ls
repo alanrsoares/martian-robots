@@ -10,7 +10,6 @@ export class Robot
     throw "#{error-prefix} are not valid numbers" if isNaN @x or isNaN @y
     throw "#{error-prefix} are negative numbers" if @x < 0 or @y < 0
     @is-lost = false
-    console.log "new robot: #{@x} #{@y} #{@facing}"
 
   get-coordinates: ->
     "#{@x} #{@y} #{@facing} #{if @is-lost then 'LOST' else ''}".trim!
@@ -35,9 +34,7 @@ export class Robot
   move-forward: (grid) ->
     last-coordinates = @get-coordinates!
 
-    if grid.has-lost-robot-scent last-coordinates then
-      console.log 'forbidden: ' + last-coordinates
-      return
+    return if grid.has-lost-robot-scent last-coordinates
 
     match @facing
     | 'N' => ++@y
