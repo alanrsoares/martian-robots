@@ -17,20 +17,21 @@ cases =
     instructions: \LLFFFLFLFL
     expected: '2 3 S'
 
-directions = 'N': 'North' 'S': 'South' 'E': 'East' 'W': 'West'
+directions = 'N': \North 'S': \South 'E': \East 'W': \West
 
-describe 'Given a new Grid with length 5 and heigth 3' ->
+describe 'Given Mars\'s surface is a rectangle with length 5 and heigth 3' ->
 
-  describe 'With 3 robots' ->
+  describe '3 robots were sent' ->
     cases.map (r) ->
       grid.add-robot r.robot, r.instructions
 
     cases.map (r, i) ->
 
       describe "A robot ##{i+1}, started at X: #{r.robot.x}, Y: #{r.robot.y}" ->
-        props = r.expected.split ' '
-        expected = x: props.0, y: props.1, facing: props.2
+        describe "After being executed the instructions: #{r.instructions}" ->
+          props = r.expected.split ' '
+          expected = x: props.0, y: props.1, facing: props.2
 
-        specify "It should be positioned at X: #{expected.x}, Y: #{expected.y},
-                 facing #{directions[expected.facing]}" ->
-          expect grid.robots[i].get-coordinates! .to .equal r.expected
+          specify "It should be positioned at X: #{expected.x}, Y: #{expected.y}, 
+                   facing #{directions[expected.facing]}" ->
+            expect grid.robots[i].get-coordinates! .to .equal r.expected
