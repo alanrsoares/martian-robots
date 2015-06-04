@@ -4,11 +4,15 @@ turn-map = do
   'S': <[ E W ]>
   'W': <[ S N ]>
 
+is-valid-orientation = (orientation) ->
+  Object.keys(turn-map).some (k) -> k is orientation
+
 export class Robot
-  (@x, @y, @facing) ->
+  (@x, @y, @facing = 'N') ->
     error-prefix = 'Invalid coordinates: one or more coordinates'
-    throw "#{error-prefix} are not valid numbers" if isNaN @x or isNaN @y
-    throw "#{error-prefix} are negative numbers" if @x < 0 or @y < 0
+    throw new Error "#{error-prefix} are not valid numbers" if isNaN @x or isNaN @y
+    throw new Error "#{error-prefix} are negative numbers"  if @x < 0 or @y < 0
+    throw new Error "#{@facing} is not a valid orientation" if not is-valid-orientation @facing
     @is-lost = false
 
   get-coordinates: ->
@@ -20,8 +24,8 @@ export class Robot
                 .map (.to-upper-case!)
                 .for-each (-> @move it, grid).bind @
 
-  turn: (instruction) ->
-    @facing = turn-map[@facing][+(instruction is 'R')]
+  turn: (direction) ->
+    @facing = turn-map[@facing][+(direction is 'R')]
 
   move: (instruction, grid) ->
     return if @is-lost

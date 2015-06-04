@@ -4,12 +4,15 @@
   "description": "Yet another grid based console game",
   "main": "src/game.ls",
   "scripts": {
-    "demo": "./node_modules/.bin/lsc src/game.ls"
+    "demo": "./node_modules/.bin/lsc src/game.ls",
+    "test": "./node_modules/.bin/mocha test --reporter spec --compilers ls:livescript"
   },
   "author": "Alan R. Soares; GitHub: @alanrsoares;",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^3.0.0",
     "figlet": "^1.1.0",
-    "livescript": "^1.4.0"
+    "livescript": "^1.4.0",
+    "mocha": "^2.2.5"
   }
 }
