@@ -5,7 +5,7 @@
   "main": "src/game.ls",
   "scripts": {
     "demo": "./node_modules/.bin/lsc src/game.ls",
-    "test": "./node_modules/.bin/mocha test --reporter spec --compilers ls:livescript"
+    "test": "./node_modules/.bin/mocha specs --reporter spec --compilers ls:livescript"
   },
   "author": "Alan R. Soares; GitHub: @alanrsoares;",
   "license": "MIT",
