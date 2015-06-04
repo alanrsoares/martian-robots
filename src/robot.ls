@@ -30,10 +30,10 @@ export class Robot
   move: (instruction, grid) ->
     return if @is-lost
 
-    if instruction is not 'F' then
-      @turn instruction
-    else
+    if instruction is 'F' then
       @move-forward grid
+    else
+      @turn instruction
 
   move-forward: (grid) ->
     last-coordinates = @get-coordinates!
