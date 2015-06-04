@@ -10,6 +10,6 @@ describe 'Given a new Robot' ->
   specify 'it should not allow an invalid orientation' ->
     expect (-> new Robot 1, 1, \F) .to .throw Error
 
-  specify 'it should land on Mars facing North' ->
+  specify 'it should land on Mars facing North by default' ->
     robot = new Robot 1, 1
     expect robot.facing .to .equal \N
