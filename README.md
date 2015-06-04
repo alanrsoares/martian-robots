@@ -10,7 +10,12 @@ npm i
 ```bash
 npm run demo
 ```
-## The Problem 
+#### Run tests
+```bash
+npm test
+```
+
+## The Problem
 
 The surface of Mars can be modelled by a rectangular grid around which robots are able
 to move according to instructions provided from Earth. You are to write a program that
