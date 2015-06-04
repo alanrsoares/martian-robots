@@ -17,8 +17,7 @@ export class Grid
     @lost-robot-coordinates.push coordinates
 
   has-lost-robot-scent: (coordinates) ->
-    @lost-robot-coordinates.length and
-    @lost-robot-coordinates.index-of coordinates > -1
+    @lost-robot-coordinates.some (c) -> c is coordinates
 
   is-robot-lost: (robot) ->
     robot.x > @length or
