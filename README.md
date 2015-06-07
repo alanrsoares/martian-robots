@@ -8,7 +8,7 @@ npm i
 
 #### Run demo
 ```bash
-npm run demo
+npm start
 ```
 #### Run tests
 ```bash
