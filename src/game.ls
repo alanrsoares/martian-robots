@@ -13,8 +13,8 @@ add-robot = (grid) ->
   console.log "Robot ##{added}"
 
   position <- rl.question 'Enter robot position: '
-  coordinates = position.split ' '
-  robot = new Robot coordinates.0, coordinates.1, coordinates.2
+  [ x, y, facing ] = position.split ' '
+  robot = new Robot x, y, facing
 
   instructions <- rl.question 'Add movement instructions: '
   grid.add-robot robot, instructions
@@ -63,8 +63,8 @@ init = ->
     console.log ''
 
     size <- rl.question 'Enter Mars surface size: (50 50) '
-    dimensions = (size or '50 50').split ' '
-    grid = new Grid dimensions.0, dimensions.1
+    [ length, heigth ] = (size or '50 50').split ' '
+    grid = new Grid length, heigth
     add-robot grid
 
 # init game
