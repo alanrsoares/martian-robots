@@ -1,5 +1,6 @@
 {
   "name": "martianrobots",
+  "repository": "git@github.com:alanrsoares/martian-robots.git",
   "version": "1.0.0",
   "description": "Yet another grid based console game",
   "main": "src/game.ls",
